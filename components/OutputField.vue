@@ -3,7 +3,7 @@
 		<ui-title>{{ title }}</ui-title>
 		<template v-if="hasValue">
 			<ui-code-box class="flex-none max-h-48">{{ value }}</ui-code-box>
-			<ui-title position="middle"><span class="text-gray-400">{{ $t('binary') }}</span></ui-title>
+			<ui-title position="middle"><span class="text-gray-400">{{ $t('bytes') }}</span></ui-title>
 			<ui-code-box class="flex-grow"><bytes-display :bytes="bytes" /></ui-code-box>
 			<div class="px-2.5 py-1.5 bg-gray-100 border border-t-0 rounded-b">
 				<span class="inline-block px-1.5 bg-white border border-purple-300 rounded text-purple-900 text-sm font-semibold font-mono">{{ size }}</span>
