@@ -1,7 +1,7 @@
 <template>
 	<div class="flex flex-col h-screen w-screen">
 		<div class="border-t-2 border-purple-500" />
-		<div class="flex-grow overflow-hidden md:grid grid-cols-2 2xl:grid-cols-3 grid-rows-2 space-y-6 md:space-y-0 md:gap-6 px-6 pt-6">
+		<div class="flex-grow md:overflow-hidden md:grid grid-cols-2 2xl:grid-cols-3 grid-rows-2 space-y-6 md:space-y-0 md:gap-6 px-6 pt-6">
 			<input-field class="row-span-2" @data="onDataChanged" />
 			<output-field class="2xl:row-span-2" title="JSON" :value="json" :bytes="jsonBytes" />
 			<output-field class="2xl:row-span-2" title="Msgpack" :value="packed" :bytes="packedBytes" />
