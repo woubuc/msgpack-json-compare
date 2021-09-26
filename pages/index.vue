@@ -84,8 +84,8 @@ export default class IndexPage extends Vue {
 			}
 
 			matches.push({ json: jsonIndex + jsonMatch, packed: packedIndex + packedMatch, bytes });
-			jsonIndex = jsonMatch + value.length;
-			packedIndex = packedMatch + value.length;
+			jsonIndex += jsonMatch + value.length;
+			packedIndex += packedMatch + value.length;
 		}
 
 		let jsonDisplayBytes: DisplayBytes = renderByteArray(jsonBytes);
