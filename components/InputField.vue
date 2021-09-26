@@ -15,13 +15,19 @@
 			</div>
 		</div>
 
-		<div class="flex items-center px-4 py-2 bg-gray-50 border border-t-0 border-gray-200 rounded-b">
+		<div class="flex items-center space-x-2 px-4 py-2 bg-gray-50 border border-t-0 border-gray-200 rounded-b">
 			<p class="flex-grow text-xs text-gray-500">{{ $t('parsed_with') }}
 				<a href="https://json5.org/" target="_blank">JSON5</a>
 			</p>
 			<button
+				v-if="!isInvalid"
+				@click="format"
+				class="px-2 py-0.5 bg-white-500 border border-gray-300 text-gray-500 hover:bg-gray-300 hover:text-gray-900 focus-visible:bg-gray-300 focus-visible:text-gray-900 rounded text-xs uppercase font-semibold">
+				{{ $t('format') }}
+			</button>
+			<button
 				@click="reset"
-				class="px-2 py-0.5 bg-purple-500 text-white hover:bg-purple-700 focus:bg-purple-700 rounded text-xs uppercase font-semibold">
+				class="px-2 py-0.5 bg-purple-500 text-white hover:bg-purple-700 focus-visible:bg-purple-700 rounded text-xs uppercase font-semibold">
 				{{ $t('reset') }}
 			</button>
 		</div>
@@ -73,6 +79,13 @@ export default class InputField extends mixins(TypedRefMixin) {
 			this.$emit('data', null);
 			return;
 		}
+	}
+
+	private format(): void {
+		try {
+			let parsed = JSON5.parse(this.value);
+			this.value = JSON5.stringify(parsed, null, '\t');
+		} catch (_) {}
 	}
 
 	private reset(): void {
