@@ -1,10 +1,10 @@
 <template>
 	<div class="flex flex-col h-screen w-screen">
 		<div class="border-t-2 border-purple-500" />
-		<div class="flex-grow md:grid grid-cols-2 grid-rows-2 space-y-6 md:space-y-0 md:gap-6 px-6 pt-6">
+		<div class="flex-grow overflow-hidden md:grid grid-cols-2 2xl:grid-cols-3 grid-rows-2 space-y-6 md:space-y-0 md:gap-6 px-6 pt-6">
 			<input-field class="row-span-2" @data="onDataChanged" />
-			<output-field title="JSON" :value="json" :bytes="jsonBytes" />
-			<output-field title="Msgpack" :value="packed" :bytes="packedBytes" />
+			<output-field class="2xl:row-span-2" title="JSON" :value="json" :bytes="jsonBytes" />
+			<output-field class="2xl:row-span-2" title="Msgpack" :value="packed" :bytes="packedBytes" />
 		</div>
 		<footer class="flex items-center justify-center space-x-6 px-6 py-2 text-xs text-gray-500">
 			<p>Made by <a href="https://www.woubuc.be" target="_blank">@woubuc</a></p>
