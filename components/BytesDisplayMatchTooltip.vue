@@ -1,7 +1,7 @@
 <template>
 	<div
 		ref="tooltip"
-		class="absolute px-2 py-0.5 bg-white rounded text-sm whitespace-nowrap font-mono font-bold shadow pointer-events-none"
+		class="absolute px-2 py-0.5 bg-white rounded text-sm font-mono font-bold shadow pointer-events-none"
 		:class="classes"
 		:style="styles">
 		{{ value }}

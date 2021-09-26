@@ -1,15 +1,15 @@
 <template>
-	<span><bytes-display-byte v-for="(byte, i) of bytes" :key="i" :byte="byte" /></span>
+	<span><template v-for="byte of bytes"><template v-if="typeof byte === 'string'">{{ byte }} </template><bytes-display-match v-else :match="byte" /></template></span>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator';
 
-import BytesDisplayByte from './BytesDisplayByte.vue';
+import BytesDisplayMatch from './BytesDisplayMatch.vue';
 
 @Component({
 	name: 'BytesDisplay',
-	components: { BytesDisplayByte },
+	components: { BytesDisplayMatch },
 })
 export default class BytesDisplay extends Vue {
 
