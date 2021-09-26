@@ -65,7 +65,7 @@ export default class IndexPage extends Vue {
 		this.packed = packedBuffer.toString();
 
 		let matches = [];
-		let valuesToMatch = Array.from(Object.entries(data)).flat().filter(i => typeof i === 'string');
+		let valuesToMatch = deepEntries(data);
 
 		let jsonIndex = 0;
 		let packedIndex = 0;
@@ -124,6 +124,27 @@ function matchIn(bytes: Uint8Array, startIndex: number, matchBytes: Uint8Array):
 		if (length === matchBytes.length) {
 			return start;
 		}
+	}
+}
+
+function deepEntries(obj: object): string[] {
+	let entries: string[] = [];
+	for (let key in obj) {
+		entries.push(key);
+		entries.push(...deepEntriesValue(obj[key]));
+	}
+	return entries;
+}
+
+function deepEntriesValue(value: any): string[] {
+	if (Array.isArray(value)) {
+		return value.map(i => deepEntriesValue(i)).flat();
+	}
+
+	switch (typeof value) {
+		case 'object': return deepEntries(value);
+		case 'string': return [value];
+		default: return [];
 	}
 }
 </script>
