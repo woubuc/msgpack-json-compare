@@ -38,6 +38,7 @@ export default class IndexPage extends Vue {
 	@ProvideReactive()
 	private bytesDisplayData: BytesDisplayData = {
 		activeMatch: null,
+		linkedScroll: 0,
 	};
 
 	private json: string | null = null;
